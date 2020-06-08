@@ -63,30 +63,29 @@
             ballX += ballSpeedX;
             ballY += ballSpeedY;
 
-            // Odbicia piłki od krawędzi górnej i dolnej
+            
             if (ballY <= 0 || ballY + ballSize >= ch) {
-                // odwracanie znaku zmiennej
+                
                 ballSpeedY = -ballSpeedY;
                 speedUp();
             }
 
-            // Odbicia piłki od krawędzi bocznych
             if (ballX <= 0) {
                 clearInterval(gameRender);
-                alert("Wygrał komputer");
+                alert("Wygrał komputer!");
             } else if (ballX + ballSize >= cw) {
                 clearInterval(gameRender);
-                alert("Wygrałeś!!!");
+                alert("Wygrałeś!");
             }
 
-            // Odbicia piłki od paletki gracza
+          
             if ((ballX <= playerX + paddelWidth) && (ballY + ballSize / 2 >= playerY) && (ballY + ballSize / 2 <= playerY + paddelHeight)) {
                 ballX += 5;
                 ballSpeedX = -ballSpeedX;
                 speedUp();
             }
 
-            // Odbicia piłki od paletki AI
+            
             if ((ballX + ballSize >= aiX) && (ballY + ballSize / 2 >= aiY) && (ballY + ballSize / 2 <= aiY + paddelHeight)) {
                 ballX -= 5;
                 ballSpeedX = -ballSpeedX;
